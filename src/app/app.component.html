@@ -27,16 +27,57 @@
       <button (click)="parse()"  mat-raised-button  class="bt-parse">Parse</button>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list cols="2"  rowHeight="100px" gutterSize="5px" class="parse-show" >
+  <mat-grid-list cols="2"  rowHeight="150px" gutterSize="5px" class="parse-show" >
     <mat-grid-tile >
-      <div *ngIf="rawData" style="font-weight: 600;">
-        First: {{rawData?.firstName}} <br>Last: {{rawData?.lastName}} <br>Client Id: {{rawData?.clientId}}
-      </div>
+      <mat-card class="card-shadow" *ngIf="rawData" >
+        <mat-card-title>RAW </mat-card-title>
+        <mat-card-content >
+          <div >
+              <table>
+                <tr>
+                  <td>First:</td>
+                  <td>{{rawData?.firstName}}</td>
+                </tr>
+                
+                <tr>
+                  <td>Last:</td>
+                  <td>{{rawData?.lastName}}</td>
+                </tr>
+                <tr>
+                  <td>Client Id:</td>
+                  <td>{{rawData?.clientId}}</td>
+                </tr>
+              </table>
+            
+          </div>
+        </mat-card-content>
+        
+      </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>
-      <div *ngIf="formattedData" style="font-weight: 600;">
-        First: {{formattedData?.firstName}} <br>Last: {{formattedData?.lastName}} <br>Client Id: {{formattedData?.clientId}}
+      <mat-card *ngIf="formattedData" class="card-shadow"  >
+        <mat-card-title>FORMATTED </mat-card-title>
+        <mat-card-content >
+      <div >
+        <table>
+          <tr>
+            <td>First:</td>
+            <td>{{formattedData?.firstName}}</td>
+          </tr>
+          
+          <tr>
+            <td>Last:</td>
+            <td>{{formattedData?.lastName}}</td>
+          </tr>
+          <tr>
+            <td>Client Id:</td>
+            <td>{{formattedData?.clientId}}</td>
+          </tr>
+        </table>
+      
       </div>
+    </mat-card-content>
+    </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
   
